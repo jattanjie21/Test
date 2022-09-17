@@ -89,6 +89,8 @@ LOCAL_APPS = [
     "core.projects",
     "core.stakeholders",
     "core.website",
+    "core.inventory",
+    "core.cms",
 
     # Your stuff: custom apps go here
 ]
