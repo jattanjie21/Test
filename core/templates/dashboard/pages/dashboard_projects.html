@@ -1,0 +1,105 @@
+{% extends 'dashboard/layout/base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+{% include 'dashboard/pages/dashboard_alerts.html' %}
+
+
+
+        <div class="row mb-3">
+
+          <div class="col-sm">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              New Project
+            </button>
+          </div>
+
+          <div class="col-sm">
+          </div>
+
+          <div class="col-sm">
+            <form class="d-flex">
+              <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New Project</h5>
+                </div>
+                <div class="modal-body">
+                  <form method="POST" action="" class="mt-5">
+                    {% csrf_token %} {{form | crispy}}
+                    <button type="submit" class="btn btn-success mt-5 align-middle">
+                      Add Project
+                    </button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th class="pt-0">#</th>
+                  <th class="pt-0">Project Name</th>
+                  <th class="pt-0">Donor</th>
+                  <th class="pt-0">Lead</th>
+                  <th class="pt-0">Status</th>
+                  <th class="pt-0">Start Date</th>
+                  <th class="pt-0">Due Date</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for project in projects %}
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{project.project_name}}</td>
+                  <td>{{project.project_stakeholder}}</td>
+                  <td>{{project.project_manager}}</td>
+
+                  {% if project.status == 'Pending' %}
+                  <td><span class="badge bg-info">Pending</span></td>
+                  {% elif project.status == 'Completed' %}
+                  <td><span class="badge bg-success">Completed</span></td>
+                  {% elif project.status == 'Pending' %}
+                  <td><span class="badge bg-warning">In Progress</span></td>
+                  {% elif project.status == 'Cancelled' %}
+                  <td><span class="badge bg-danger">Cancelled</span></td>
+                  {% endif %}
+
+                  <td>{{project.project_start_date}}</td>
+                  <td>{{project.project_end_date}}</td>
+                </tr>
+                {% endfor %}
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+</html>
+
+
+{% endblock %}

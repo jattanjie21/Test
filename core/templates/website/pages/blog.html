@@ -1,0 +1,109 @@
+
+{% extends 'website/layout/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <!-- Blog Section Start -->
+        <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container custom">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 order-last">
+                        <div class="widget-area">
+                            <div class="search-widget mb-50">
+                                <div class="search-wrap">
+                                    <input type="search" placeholder="Searching..." name="s" class="search-input"
+                                        value="">
+                                    <button type="submit" value="Search"><i class="flaticon-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="recent-posts mb-50">
+                                <div class="widget-title">
+                                    <h3 class="title">Recent Posts</h3>
+                                </div>
+
+                                {% for post in posts %}
+                                <div class="recent-post-widget no-border">
+                                    <div class="post-img">
+                                        <a href=""><img src="{% static 'website/images/blog/inner/style2/1.jpg' %}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="post-desc">
+                                        <a href=""> {{post.title}}</a>
+                                        <span class="date-post"> <i class="fa fa-calendar"></i> {{published_date}} </span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                            <div class="categories">
+                                <div class="widget-title">
+                                    <h3 class="title">Categories</h3>
+                                </div>
+                                <ul>
+                                    {% for category in categories %}
+                                    <li><a href="">{{category.category_name}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 pr-35 md-pr-15 md-mt-50">
+                        <div class="row">
+
+                            {% for post in posts%}
+                            <div class="col-lg-12 mb-50">
+                                <div class="blog-item">
+                                    <div class="blog-img">
+                                        <a href=""><img src="{% static 'website/images/blog/inner/style1/ftm.png' %}"
+                                                alt=""></a>
+                                        <ul class="post-categories">
+                                            <li><a href="">{{post.category}}</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="blog-content">
+                                        <h3 class="blog-title"><a href="">{{post.title}}</a></h3>
+                                        <div class="blog-meta">
+                                            <ul class="btm-cate">
+                                                <li>
+                                                    <div class="blog-date">
+                                                        <i class="fa fa-calendar-check-o"></i> {{published_date}}
+                                                    </div>
+                                                </li>
+                                                {% comment %} <li>
+                                                    <div class="author">
+                                                        <i class="fa fa-user-o"></i>
+                                                    </div>
+                                                </li> {% endcomment %}
+                                            </ul>
+                                        </div>
+                                        <div class="blog-desc">
+                                            {{post.content | truncatewords:25}}
+                                        </div>
+                                        <div class="blog-button">
+                                            <a class="blog-btn" href="blog-details.html">Continue Reading</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+                            <div class="col-lg-12">
+                                <div class="pagination-area">
+                                    <div class="nav-link">
+                                        <span class="page-number white-color">1</span>
+                                        <a class="page-number" href="#">2</a>
+                                        <a class="page-number border-none" href="#">Next</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Section End -->
+
+{% endblock %}

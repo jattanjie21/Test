@@ -1,0 +1,182 @@
+{% extends 'website/layout/base.html' %}
+
+{% load static %}
+
+
+
+        {% block content %}
+        <!-- Contact Section Start -->
+        <div class="rs-contact contact-style2 gray-bg pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container">
+                <div class="row margin-0">
+                    <div class="col-lg-6 padding-0">
+                        <div class="contact-address">
+                            <div class="sec-title mb-46">
+                                <h2 class="title pb-20">
+                                    {{contact.header_title}}
+                                </h2>
+                                <p class="margin-0">{{contact.paragraph}}</p>
+                            </div>
+                            <div class="address-item mb-25">
+                                <div class="address-icon">
+                                    <img src="{% static 'website/images/contact/icons/1.png' %}" alt="Address">
+                                </div>
+                                <div class="address-text">
+                                    {{contact.address_one}} <br> {{contact.address_two}}
+                                </div>
+                            </div>
+
+                            <div class="address-item mb-25">
+                                <div class="address-icon">
+                                    <img src="{% static 'website/images/contact/icons/5.png' %}" alt="Address">
+                                </div>
+                                <div class="address-text">
+                                    <a href="">+220 {{contact.phone_1}}</a><br>
+                                    <a href="">+220 {{contact.phone_2}}</a>
+                                </div>
+                            </div>
+                            <div class="address-item mb-25">
+                                <div class="address-icon">
+                                    <img src="{% static 'website/images/contact/icons/6.png' %}" alt="Address">
+                                </div>
+                                <div class="address-text">
+                                    <a href="mailto:{{contact.email}}">{{contact.email}}</a><br>
+                                    <a href="mailto:{{contact.email_2}}">{{contact.email_2}}</a>
+                                </div>
+                            </div>
+                            <div class="address-item">
+                                <div class="address-icon">
+                                    <img src="{% static 'website/images/contact/icons/7.png' %}" alt="Address">
+                                </div>
+                                <div class="address-text">
+                                    <a href="">+220 {{contact.telephone_line_1}}</a><br>
+                                    <a href="">+220 {{contact.telephone_line_2}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 padding-0">
+                        <div class="contact-map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.414224280384!2d-16.676439184595854!3d13.448544390544237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec29be51f3dc251%3A0xc262b628cb1b2c8a!2sGambia%20Participates!5e0!3m2!1sen!2sus!4v1662849272741!5m2!1sen!2sus"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Contact Section End -->
+
+        <!-- Contact Section Start-->
+        <div class="rs-contact main-home office-modify1 pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container">
+                <div class="row margin-0">
+                    <div class="col-lg-6 padding-0 office-buliding"></div>
+                    <div class="col-lg-6 padding-0">
+                        <div class="contact-section contact-style2">
+                            <div class="sec-title mb-60">
+                                <h2 class="title">
+                                    Contact us
+                                </h2>
+                            </div>
+                            <div class="contact-wrap">
+                                <div id="form-messages"></div>
+                                <form id="contact-form" method="post" action="mailer.php">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                                <input class="from-control" type="text" id="name" name="name"
+                                                    placeholder="Name" required="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                                <input class="from-control" type="text" id="email" name="email"
+                                                    placeholder="E-Mail" required="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                                <input class="from-control" type="text" id="phone" name="phone"
+                                                    placeholder="Phone Number" required="">
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                                <input class="from-control" type="text" id="Website" name="subject"
+                                                    placeholder="Your Website" required="">
+                                            </div>
+
+                                            <div class="col-lg-12 mb-35">
+                                                <textarea class="from-control" id="message" name="message"
+                                                    placeholder="Your message Here" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="btn-part">
+                                            <div class="form-group mb-0">
+                                                <input class="readon submit" type="submit" value="Submit Now">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Section End -->
+
+        <!-- Partner Section Start -->
+        <div class="rs-patter-section black-bg pt-80 pb-75">
+            <div class="container custom">
+                <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="30"
+                    data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800"
+                    data-dots="false" data-nav="false" data-nav-speed="false" data-md-device="5"
+                    data-md-device-nav="false" data-md-device-dots="false" data-center-mode="false"
+                    data-ipad-device2="4" data-ipad-device-nav2="false" data-ipad-device-dots2="false"
+                    data-ipad-device="4" data-ipad-device-nav="false" data-ipad-device-dots="false"
+                    data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false">
+                    <div class="logo-img">
+                        <a href="https://rstheme.com">
+                            <img class="hovers-logos rs-grid-img" src="{% static 'website/images/partner/main-home/1' %}.png" title=""
+                                alt="">
+                            <img class="mains-logos rs-grid-img " src="{% static 'website/images/partner/main-home/1' %}.png" title=""
+                                alt="">
+                        </a>
+                    </div>
+                    <div class="logo-img">
+                        <a href="https://rstheme.com">
+                            <img class="hovers-logos rs-grid-img" src="{% static 'website/images/partner/main-home/2' %}.png" title=""
+                                alt="">
+                            <img class="mains-logos rs-grid-img " src="{% static 'website/images/partner/main-home/2' %}.png" title=""
+                                alt="">
+                        </a>
+                    </div>
+                    <div class="logo-img">
+                        <a href="https://rstheme.com">
+                            <img class="hovers-logos rs-grid-img" src="{% static 'website/images/partner/main-home/3' %}.png" title=""
+                                alt="">
+                            <img class="mains-logos rs-grid-img " src="{% static 'website/images/partner/main-home/3' %}.png" title=""
+                                alt="">
+                        </a>
+                    </div>
+                    <div class="logo-img">
+                        <a href="https://rstheme.com">
+                            <img class="hovers-logos rs-grid-img" src="{% static 'website/images/partner/main-home/4' %}.png" title=""
+                                alt="">
+                            <img class="mains-logos rs-grid-img " src="{% static 'website/images/partner/main-home/4' %}.png" title=""
+                                alt="">
+                        </a>
+                    </div>
+                    <div class="logo-img">
+                        <a href="https://rstheme.com">
+                            <img class="hovers-logos rs-grid-img" src="{% static 'website/images/partner/main-home/5' %}.png" title=""
+                                alt="">
+                            <img class="mains-logos rs-grid-img " src="{% static 'website/images/partner/main-home/5' %}.png" title=""
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Partner Section End -->
+
+        {% endblock %}
+
+

@@ -81,6 +81,14 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "core.users",
     "whitenoise.runserver_nostatic",
+    "core.blog",
+    "core.dashboard_admin",
+    "core.gp_about",
+    "core.index",
+    "core.procurement",
+    "core.projects",
+    "core.stakeholders",
+    "core.website",
 
     # Your stuff: custom apps go here
 ]

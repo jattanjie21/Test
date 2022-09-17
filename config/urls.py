@@ -4,18 +4,28 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
+from dashboard_admin import views
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
-    path(
-        "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
-    ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
+
     # User management
-    path("users/", include("core.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+
     # Your stuff: custom urls includes go here
+    path("",include("core.website.urls")),
+    path("dashboard/",include("core.dashboard_admin.urls")),
+
+    # path('register/',views.registerPage,name="register"),
+    # path('login/',views.loginUser,name="login"),
+    # path('logout/',views.logoutUser,name="logout"),
+
+    path("api/", csrf_exempt(GraphQLView.as_view(graphiql=True)),name="api"),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
@@ -44,3 +54,8 @@ if settings.DEBUG:
         import debug_toolbar
 
         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
+
+
+admin.site.site_header =  "Gambia Participates"
+admin.site.site_title  =  "Gambia Participates Admin Site"
+admin.site.index_title =  "Gambia Participates Admin"

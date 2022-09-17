@@ -1,0 +1,210 @@
+{% load static %}
+
+
+<!-- partial:partials/_sidebar.html -->
+		<nav class="sidebar">
+            <div class="sidebar-header">
+              <a href="{% url 'dashboard-home' %}" class="sidebar-brand">
+                G<span>P</span>
+              </a>
+              <div class="sidebar-toggler not-active">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="sidebar-body">
+              <ul class="nav">
+
+                <li class="nav-item nav-category">Main</li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-home' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Dashboard</span>
+                  </a>
+                </li>
+
+                  <li class="nav-item">
+                  <a href="{% url 'dashboard-projects' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title">Projects</span>
+                  </a>
+                </li>
+
+                  <li class="nav-item">
+                  <a href="{% url 'dashboard_staffs' %}" class="nav-link">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Staffs</span>
+                  </a>
+                  </li>
+                </li>
+
+                <li class="nav-item nav-category">Content Management</li>
+                <li class="nav-item">
+
+            <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false" aria-controls="general-pages">
+              <i class="link-icon" data-feather="book"></i>
+
+              <span class="link-title">Web Pages</span>
+              <i class="link-arrow" data-feather="chevron-down"></i>
+            </a>
+            <div class="collapse" id="general-pages">
+              <ul class="nav sub-menu">
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-homepage' %}" class="nav-link">Homepage</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-blog' %}" class="nav-link">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-faq' %}" class="nav-link">Faq</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-aboutus' %}" class="nav-link">About</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-career' %}" class="nav-link">Careers</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-contactus' %}" class="nav-link">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-gallery' %}" class="nav-link">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-stakeholders' %}" class="nav-link">Stakeholders</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-team' %}" class="nav-link">Team</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-testimonials' %}" class="nav-link">Testimonials</a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-footer' %}" class="nav-link">Footer</a>
+                </li>
+
+              </ul>
+            </div>
+          </li>
+
+                </li>
+
+                <li class="nav-item nav-category">Admin & Finance</li>
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-procurement' %}" class="nav-link">
+                    <i class="link-icon" data-feather="credit-card"></i>
+                    <span class="link-title">Procurement</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-inventory' %}" class="nav-link">
+                    <i class="link-icon" data-feather="shopping-cart"></i>
+                    <span class="link-title">Inventory</span>
+                  </a>
+                </li>
+
+                <li class="nav-item nav-category">SuperAdmin</li>
+                <li class="nav-item">
+                  <a href="{% url 'dashboard-register' %}" class="nav-link">
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Register User</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" class="nav-link">
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Edit User</span>
+                  </a>
+                </li>
+
+
+                <li class="nav-item nav-category">Resources</li>
+                <li class="nav-item">
+                  <a href="" target="_blank" class="nav-link">
+                    <i class="link-icon" data-feather="file-text"></i>
+                    <span class="link-title">Documentation</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'api' %}" target="_blank" class="nav-link">
+                    <i class="link-icon" data-feather="server"></i>
+                    <span class="link-title">API</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" target="_blank" class="nav-link">
+                    <i class="link-icon" data-feather="file-plus"></i>
+                    <span class="link-title">Publications</span>
+                  </a>
+                </li>
+
+                <li class="nav-item nav-category">Authentication</li>
+                <li class="nav-item">
+                  <a href="" target="_blank" class="nav-link">
+                    <i class="link-icon" data-feather="user"></i>
+                    <span class="link-title">Profile</span>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="{% url 'logout' %}" target="_blank" class="nav-link">
+                    <i class="link-icon" data-feather="user-x"></i>
+                    <span class="link-title">Logout</span>
+                  </a>
+                </li>
+
+
+
+              </ul>
+            </div>
+          </nav>
+          <nav class="settings-sidebar">
+            <div class="sidebar-body">
+              <a href="#" class="settings-sidebar-toggler">
+                <i data-feather="settings"></i>
+              </a>
+              <h6 class="text-muted mb-2">Sidebar:</h6>
+              <div class="mb-3 pb-3 border-bottom">
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarLight" value="sidebar-light" checked>
+                  <label class="form-check-label" for="sidebarLight">
+                    Light
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarDark" value="sidebar-dark">
+                  <label class="form-check-label" for="sidebarDark">
+                    Dark
+                  </label>
+                </div>
+              </div>
+              <div class="theme-wrapper">
+                <h6 class="text-muted mb-2">Light Theme:</h6>
+                <a class="theme-item active" href="#">
+                  <img src="{% static 'dashboard/images/screenshots/light.jpg' %}" alt="light theme">
+                </a>
+                <h6 class="text-muted mb-2">Dark Theme:</h6>
+                <a class="theme-item" href="#">
+                  <img src="{% static 'dashboard/images/screenshots/dark.jpg' %}" alt="light theme">
+                </a>
+              </div>
+            </div>
+          </nav>
+              <!-- partial -->
