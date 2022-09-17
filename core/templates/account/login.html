@@ -1,107 +1,59 @@
-<!DOCTYPE html>
+{% extends "account/base.html" %}
 
-{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
 
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="NobleUI">
-	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+{% block head_title %}{% translate "Sign In" %}{% endblock %}
 
-	<title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+{% block inner %}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <!-- End fonts -->
+<h1>{% translate "Sign In" %}</h1>
 
-	<!-- core:css -->
-	<link rel="stylesheet" href="{% static 'dashboard/vendors/core/core.css' %}">
-	<!-- endinject -->
+{% get_providers as socialaccount_providers %}
 
-	<!-- Plugin css for this page -->
-	<!-- End plugin css for this page -->
+{% if socialaccount_providers %}
+  <p>
+    {% translate "Please sign in with one of your existing third party accounts:" %}
+    {% if ACCOUNT_ALLOW_REGISTRATION %}
+      {% blocktranslate trimmed %}
+        Or, <a href="{{ signup_url }}">sign up</a>
+        for a {{ site_name }} account and sign in below:
+      {% endblocktranslate %}
+    {% endif %}
+  </p>
 
-	<!-- inject:css -->
-	<link rel="stylesheet" href="{% static 'dashboard/fonts/feather-font/css/iconfont.css' %}">
-	<link rel="stylesheet" href="{% static 'dashboard/vendors/flag-icon-css/css/flag-icon.min.css' %}">
-	<!-- endinject -->
+  <div class="socialaccount_ballot">
 
-  <!-- Layout styles -->
-	<link rel="stylesheet" href="{% static 'dashboard/css/demo1/style.css' %}">
-  <!-- End layout styles -->
+    <ul class="socialaccount_providers">
+      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
 
-  <link rel="shortcut icon" href="{% static 'dashboard/images/favicon.png' %}" />
-</head>
-<body>
-	<div class="main-wrapper">
-		<div class="page-wrapper full-page">
-			<div class="page-content d-flex align-items-center justify-content-center">
+    <div class="login-or">{% translate "or" %}</div>
 
-				<div class="row w-100 mx-0 auth-page">
-					<div class="col-md-8 col-xl-6 mx-auto">
-						<div class="card">
-							<div class="row">
-                <div class="col-md-4 pe-md-0">
-                  <div class="auth-side-wrapper">
+  </div>
 
-                  </div>
-                </div>
-                <div class="col-md-8 ps-md-0">
-                  <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="noble-ui-logo d-block mb-2">Gambia<span> Participates</span></a>
-                    <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                    <form class="forms-sample" action="" method="POST">
+  {% include "socialaccount/snippets/login_extra.html" %}
 
-                      {% csrf_token %}
+{% else %}
+  {% if ACCOUNT_ALLOW_REGISTRATION %}
+    <p>
+      {% blocktranslate trimmed %}
+        If you have not created an account yet, then please
+        <a href="{{ signup_url }}">sign up</a> first.
+      {% endblocktranslate %}
+    </p>
+  {% endif %}
+{% endif %}
 
-                      <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="test123">
-                      </div>
-                      <div class="mb-3">
-                        <label for="userPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                      </div>
-                      <div class="form-check mb-3">
-                        <input type="checkbox" class="form-check-input" id="authCheck">
-                        <label class="form-check-label" for="authCheck">
-                          Remember me
-                        </label>
-                      </div>
-                      <div>
-                        <button class="w-20 btn btn-lg btn-primary" type="submit">Sign in</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-						</div>
-					</div>
-				</div>
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form|crispy }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% translate "Forgot Password?" %}</a>
+  <button class="primaryAction btn btn-primary" type="submit">{% translate "Sign In" %}</button>
+</form>
 
-			</div>
-		</div>
-	</div>
-
-	<!-- core:js -->
-	<script src="{% static 'dashboard/vendors/core/core.js' %}"></script>
-	<!-- endinject -->
-
-	<!-- Plugin js for this page -->
-	<!-- End plugin js for this page -->
-
-	<!-- inject:js -->
-	<script src="{% static 'dashboard/vendors/feather-icons/feather.min.js' %}"></script>
-	<script src="{% static 'dashboard/js/template.js' %}"></script>
-	<!-- endinject -->
-
-	<!-- Custom js for this page -->
-	<!-- End custom js for this page -->
-
-</body>
-</html>
+{% endblock %}

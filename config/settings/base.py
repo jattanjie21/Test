@@ -2,6 +2,7 @@
 Base settings to build other settings files upon.
 """
 from pathlib import Path
+
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -80,18 +81,6 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "core.users",
-    #"whitenoise.runserver_nostatic",
-    "core.blog",
-    "core.dashboard_admin",
-    "core.gp_about",
-    "core.index",
-    "core.procurement",
-    "core.projects",
-    "core.stakeholders",
-    "core.website",
-    "core.inventory",
-    "core.cms",
-
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
