@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
 
-from gp_about.models import Staff
+#from gp_about.models import Staff
 from projects.models import Projects
 from projects.forms import ProjectForm
 from inventory.models import Inventory
