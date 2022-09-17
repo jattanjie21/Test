@@ -80,7 +80,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "core.users",
-    #"whitenoise.runserver_nostatic",
+    "whitenoise.runserver_nostatic",
     "core.blog",
     "core.dashboard_admin",
     "core.gp_about",
