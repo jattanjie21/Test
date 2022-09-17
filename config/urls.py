@@ -4,8 +4,6 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
-from graphene_django.views import GraphQLView
-from django.views.decorators.csrf import csrf_exempt
 from dashboard_admin import views
 
 urlpatterns = [
@@ -22,8 +20,6 @@ urlpatterns = [
     # path('register/',views.registerPage,name="register"),
     # path('login/',views.loginUser,name="login"),
     # path('logout/',views.logoutUser,name="logout"),
-
-    path("api/", csrf_exempt(GraphQLView.as_view(graphiql=True)),name="api"),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
